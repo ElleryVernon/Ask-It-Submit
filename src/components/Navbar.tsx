@@ -49,7 +49,7 @@ const Navbar = ({ currentUser }: NavbarProps) => {
 									>
 										로그인
 									</Button>
-									<Button size="sm" onClick={() => signIn("kakao")}>
+									<Button size="sm" onClick={() => signIn("kakao")} className="cursor-pointer">
 										시작하기 <ArrowRight className="ml-1.5 h-3 w-3" />
 									</Button>
 								</>

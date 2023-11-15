@@ -10,6 +10,7 @@ import { supabase } from "@/supabase";
 import { toast } from "sonner";
 import { trpc } from "@/trpc/client";
 import { useRouter } from "next/navigation";
+import { v4 as uuidv4 } from "uuid";
 
 const FileDropzone = () => {
 	const router = useRouter();
@@ -58,14 +59,10 @@ const FileDropzone = () => {
 
 			const { data, error } = await supabase.storage
 				.from("askit")
-				.upload(
-					`${acceptedFile[0].name.split(".pdf")[0] + new Date().getTime()}.pdf`,
-					acceptedFile[0],
-					{
-						cacheControl: "3600",
-						upsert: false,
-					}
-				);
+				.upload(`${uuidv4()}.pdf`, acceptedFile[0], {
+					cacheControl: "3600",
+					upsert: false,
+				});
 
 			clearInterval(progressInterval);
 			setProgress(100);

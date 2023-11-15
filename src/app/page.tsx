@@ -70,10 +70,12 @@ export default async function Home() {
 				</p>
 
 				<Link
-					className={buttonVariants({
-						size: "lg",
-						class: "mt-5",
-					})}
+					className={
+						buttonVariants({
+							size: "lg",
+							class: "mt-5",
+						}) + "cursor-pointer"
+					}
 					href="/dashboard"
 					target="_blank"
 				>
